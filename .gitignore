@@ -3,6 +3,7 @@ __pycache__/
 .envrc
 db.sqlite3
 *.pyc
+*.csv
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
