@@ -3,27 +3,32 @@
 from __future__ import unicode_literals
 
 import csv
+import psycopg2
 from django.db import migrations
+from james_bond_api.settings import DATABASES
 
-resources = [
-    ('characters.csv', 'Character'),
-    ('vehicles.csv', 'Vehicle'),
-    ('gadgets.csv', 'Gadget'),
-    ('movies.csv', 'Movie')
-]
+conn = psycopg2.connect(
+    dbname=DATABASES['default']['NAME'],
+    user=DATABASES['default']['USER'],
+    password=DATABASES['default']['PASSWORD'],
+    host=DATABASES['default']['HOST'],
+    port=DATABASES['default']['PORT']
+)
+cur = conn.cursor()
+cur.execute("TRUNCATE TABLE api_app_character")
 
 
 def create_data(apps, schema_editor):
-    for resource in resources:
-        with open(resource[0], newline='', encoding='utf-8') as infile:
-            file_reader = csv.reader(infile)
-            rows = [row for row in file_reader]
-            headers = rows[0]
-            data = rows[1:]
+    with open('characters.csv', newline='', encoding='utf-8') as infile:
+        file_reader = csv.reader(infile)
+        rows = [row for row in file_reader]
+        headers = rows[0]
+        data = rows[1:]
 
-        Model = apps.get_model('api_app', resource[1])
-        for row in data:
-            Model.objects.create(**dict(zip(headers, row)))
+    Model = apps.get_model('api_app', 'Character')
+    for row in data:
+        row = list(map(lambda x: int(x) if x == '0' else x, row))
+        Model.objects.create(**dict(zip(headers, row)))
 
 
 class Migration(migrations.Migration):
