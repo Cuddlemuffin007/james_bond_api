@@ -15,7 +15,7 @@ resources = [
 
 def create_data(apps, schema_editor):
     for resource in resources:
-        with open(resource[0]) as infile:
+        with open('./' + resource[0]) as infile:
             file_reader = csv.reader(infile)
             rows = [row for row in file_reader]
             headers = rows[0]
