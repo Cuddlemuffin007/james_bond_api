@@ -15,7 +15,7 @@ conn = psycopg2.connect(
     port=DATABASES['default']['PORT']
 )
 cur = conn.cursor()
-cur.execute("TRUNCATE TABLE api_app_character")
+cur.execute("DELETE FROM ONLY api_app_character")
 
 
 def create_data(apps, schema_editor):
