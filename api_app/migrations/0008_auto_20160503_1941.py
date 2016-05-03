@@ -27,8 +27,7 @@ def create_data(apps, schema_editor):
 
     Model = apps.get_model('api_app', 'Character')
     for row in data:
-        row = list(map(lambda x: False if x == '0' else x, row))
-        Model.objects.create(**dict(zip(headers, row)))
+        Model.objects.create(**dict(zip(headers, list(map(lambda x: 'f' if x == '0' else x, row)))))
 
 
 class Migration(migrations.Migration):
