@@ -19,6 +19,7 @@ from api_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.LandingPageView.as_view(), name='landing_page_view'),
     url(r'api/movies/$', views.MovieListAPIView.as_view(), name='movie_list_api_view'),
     url(
         r'api/(?P<char_type>characters|allies|villains|henchmen|bond-girls)/$',

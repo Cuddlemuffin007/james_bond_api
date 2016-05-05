@@ -1,0 +1,24 @@
+body {
+  padding-top: 50px;
+}
+
+.navbar-brand img {
+  height: 20px;
+}
+
+.page-header {
+  text-align: center;
+}
+
+#intro h3,
+#documentation h3,
+#about h3 {
+  padding: 20px 0;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+#about {
+  padding-bottom: 30px;
+}
+

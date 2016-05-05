@@ -1,8 +1,13 @@
+from django.views.generic import TemplateView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from api_app.models import Movie, Character, Vehicle, Gadget, BondActor
 from api_app.serializers import MovieSerializer, CharacterSerializer, \
                                 VehicleSerializer, GadgetSerializer, \
                                 BondActorSerializer
+
+
+class LandingPageView(TemplateView):
+    template_name = 'index.html'
 
 
 class MovieListAPIView(ListAPIView):

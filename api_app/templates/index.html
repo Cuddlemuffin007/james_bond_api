@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>007 API <small>RESTful API for EON Production James Bond films</small></h1>
+  </div>
+  <div id="intro">
+    <h3>
+      Introduction
+    </h3>
+    <p>
+      First and foremost, this API was created heavily based on the Star Wars API. If you've never visited <a href="http://swapi.co" target="_blank">swapi</a> then I highly encourage you to do so.
+    </p>
+    <p>
+    During the week after instruction finished at the <a href="https://theironyard.com" target="_blank">Iron Yard</a> in Greenville, SC and with time before final projects began, I decided to build this API. I have been a life-long Bond fan
+       and there are many others like me. It was disappointing to me in my, albeit brief Google search, that I couldn't find an existing API for James Bond information. I hope that this API may be of use to someone,
+       and I'll continue to try and make it better. This project is fully open source and built on top of
+       python and Django REST framework. Anyone who would like to contribute is completely welcome. You can find the repository <a href="https://github.com/Cuddlemuffin007/james_bond_api" target="_blank">here</a>.
+    </p>
+    <p>
+      Please feel free to visit my <a href="http://brennonkrogers.com" target="_blank">personal website</a> and view some of my other projects as well.
+    </p>
+  </div>
+  <div id="documentation">
+    <h3>
+      Documentation
+    </h3>
+    <p>
+      All information in the database can be accessed using the root api url <span class="well well-sm">/api/</span> and appending the plural name of the resource, i.e.
+      <pre>/api/characters/</pre>
+      This will return a paginated list of all characters, default page size is 10 records.<br>
+      Resources that may be queried are:
+      <ul>
+        <li><pre>/api/characters/</pre></li>
+        <li><pre>/api/movies/</pre></li>
+        <li><pre>/api/gadgets/</pre></li>
+        <li><pre>/api/vehicles/</pre></li>
+        <li><pre>/api/bond-actors/</pre></li>
+      </ul>
+    </p>
+    <p>
+      You may also filter down the characters by the role they play in the movies by replacing <span class="well well-sm">/characters/</span> with a more specific resource name.<br>
+      Accepted resource names are:
+      <ul>
+        <li><pre>/allies/</pre></li>
+        <li><pre>/villains/</pre></li>
+        <li><pre>/henchmen/</pre></li>
+        <li><pre>/bond-girls/</pre></li>
+      </ul>
+    </p>
+    <p>
+      Appending a query string <span class="well well-sm">?page=2</span> will return page two of the results.
+      Thus, the following url returns page 3 of the vehicles used in Bond films.
+      <pre>/api/vehicles/?page=3</pre>
+    </p>
+      Finally, you may also retrieve specific records by appending the id of the record to any specific endpoint.
+    </p>
+    <p>
+    For example, using this format <span class="well well-sm">/api/&lt;resource-name&gt;/:id/</span> the following url
+    </p>
+    <pre>/api/characters/1/</pre>
+      will return
+      <pre>
+      {
+          "id": 1,
+          "name": "James Bond",
+          "bio": "Intelligence officer in the Secret Intelligence Service, commonly known as MI6. Bond is also known by his code number, 007, and is a Royal Naval Reserve Commander",
+          "alias": "007",
+          "ally": false,
+          "villain": false,
+          "henchman": false,
+          "bond_girl": false
+      }
+      </pre>
+      the man himself: Bond, James Bond.
+    </p>
+  </div>
+  <div id="about">
+    <h3>
+      About the Developer
+    </h3>
+    <p>
+      My name is Brennon Rogers and I am a Python and Django web developer. I also enjoy writing Ruby and have done a couple of simple Rails apps, too.
+      Recently, I have begun to study Golang as well seeing as how it's getting pretty popular with a lot of startups and open source developers.
+    </p>
+    <p>
+      Outside of programming, I enjoy movies, TV, sports, and occasionally going for a run.
+    </p>
+    <p>
+    For a look at some of my other projects, please take a look at my
+      <a href="http://brennonkrogers.com/#portfolio" target="_blank"> portfolio</a> or check out my <a href="https://github.com/Cuddlemuffin007">GitHub</a>.
+    </p>
+  </div>
+{% endblock %}
