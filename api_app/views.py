@@ -11,32 +11,19 @@ class MovieListAPIView(ListAPIView):
 
 
 class CharacterListAPIView(ListAPIView):
-    queryset = Character.objects.all()
     serializer_class = CharacterSerializer
 
-
-class AllyListAPIView(CharacterListAPIView):
-
     def get_queryset(self):
-        return Character.objects.filter(ally=True)
-
-
-class BondGirlListAPIView(CharacterListAPIView):
-
-    def get_queryset(self):
-        return Character.objects.filter(bond_girl=True)
-
-
-class VillainListAPIView(CharacterListAPIView):
-
-    def get_queryset(self):
-        return Character.objects.filter(villain=True)
-
-
-class HenchmanListAPIView(CharacterListAPIView):
-
-    def get_queryset(self):
-        return Character.objects.filter(henchman=True)
+        if self.kwargs.get('char_type') == 'allies':
+            return Character.objects.filter(ally=True)
+        elif self.kwargs.get('char_type') == 'villains':
+            return Character.objects.filter(villain=True)
+        elif self.kwargs.get('char_type') == 'henchmen':
+            return Character.objects.filter(henchman=True)
+        elif self.kwargs.get('char_type') == 'bond-girls':
+            return Character.objects.filter(bond_girl=True)
+        else:
+            return Character.objects.all()
 
 
 class VehicleListAPIView(ListAPIView):
@@ -59,9 +46,20 @@ class MovieRetrieveAPIView(RetrieveAPIView):
     serializer_class = MovieSerializer
 
 
-class CharacterRetrieveAPIView(RetrieveAPIView):
-    queryset = Character.objects.all()
+class CharacterByTypeRetrieveAPIView(RetrieveAPIView):
     serializer_class = CharacterSerializer
+
+    def get_queryset(self):
+        if self.kwargs.get('char_type') == 'allies':
+            return Character.objects.filter(ally=True)
+        elif self.kwargs.get('char_type') == 'villains':
+            return Character.objects.filter(villain=True)
+        elif self.kwargs.get('char_type') == 'henchmen':
+            return Character.objects.filter(henchman=True)
+        elif self.kwargs.get('char_type') == 'bond-girls':
+            return Character.objects.filter(bond_girl=True)
+        else:
+            return Character.objects.all()
 
 
 class VehicleRetrieveAPIView(RetrieveAPIView):

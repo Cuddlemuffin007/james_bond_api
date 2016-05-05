@@ -6,6 +6,7 @@ class MovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
+        depth = 1
 
 
 class CharacterSerializer(serializers.ModelSerializer):
@@ -24,6 +25,7 @@ class GadgetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Gadget
+        depth = 1
 
 
 class BondActorSerializer(serializers.ModelSerializer):

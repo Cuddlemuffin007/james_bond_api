@@ -20,19 +20,25 @@ from api_app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'api/movies/$', views.MovieListAPIView.as_view(), name='movie_list_api_view'),
-    url(r'api/characters/$', views.CharacterListAPIView.as_view(), name='character_list_api_view'),
-    url(r'api/allies/$', views.AllyListAPIView.as_view(), name='ally_list_api_view'),
-    url(r'api/bond_girls/$', views.BondGirlListAPIView.as_view(), name='bond_girl_list_api_view'),
-    url(r'api/villains/$', views.VillainListAPIView.as_view(), name='villain_list_api_view'),
-    url(r'api/henchmen/$', views.HenchmanListAPIView.as_view(), name='henchman_list_api_view'),
+    url(
+        r'api/(?P<char_type>characters|allies|villains|henchmen|bond-girls)/$',
+        views.CharacterListAPIView.as_view(),
+        name='character_list_api_view'),
     url(r'api/vehicles/$', views.VehicleListAPIView.as_view(), name='vehicle_list_api_view'),
     url(r'api/gadgets/$', views.GadgetListAPIView.as_view(), name='gadget_list_api_view'),
-    url(r'api/bond_actors/$', views.BondActorListAPIView.as_view(), name='bond_actor_list_api_view'),
+    url(r'api/bond-actors/$', views.BondActorListAPIView.as_view(), name='bond_actor_list_api_view'),
 
     # Retrieve API Views for resources
     url(r'api/movies/(?P<pk>\d+)/$', views.MovieRetrieveAPIView.as_view(), name='movie_retrieve_api_view'),
-    url(r'api/characters/(?P<pk>\d+)/$', views.CharacterRetrieveAPIView.as_view(), name='character_retrieve_api_view'),
     url(r'api/vehicles/(?P<pk>\d+)/$', views.VehicleRetrieveAPIView.as_view(), name='vehicle_retrieve_api_view'),
     url(r'api/gadgets/(?P<pk>\d+)/$', views.GadgetRetrieveAPIView.as_view(), name='gadget_retrieve_api_view'),
-    url(r'api/bond_actors/(?P<pk>\d+)/$', views.BondActorRetrieveAPIView.as_view(), name='bond_actor_retrieve_api_view')
+    url(
+        r'api/bond-actors/(?P<pk>\d+)/$',
+        views.BondActorRetrieveAPIView.as_view(),
+        name='bond_actor_retrieve_api_view'),
+    url(
+        r'api/(?P<char_type>characters|allies|villains|henchmen|bond-girls)/(?P<pk>\d+)/$',
+        views.CharacterByTypeRetrieveAPIView.as_view(),
+        name='character_by_type_retrieve_api_view'
+    )
 ]
