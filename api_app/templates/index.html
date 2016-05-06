@@ -13,9 +13,9 @@
     </p>
     <p>
     During the week after instruction finished at the <a href="https://theironyard.com" target="_blank">Iron Yard</a> in Greenville, SC and with time before final projects began, I decided to build this API. I have been a life-long Bond fan
-       and there are many others like me. It was disappointing to me in my, albeit brief Google search, that I couldn't find an existing API for James Bond information. I hope that this API may be of use to someone,
+       and there are many others like me. It was disappointing to me in my, albeit brief, Google search that I couldn't find an existing API for James Bond information. I hope that this API may be of use to someone,
        and I'll continue to try and make it better. This project is fully open source and built on top of
-       python and Django REST framework. Anyone who would like to contribute is completely welcome. You can find the repository <a href="https://github.com/Cuddlemuffin007/james_bond_api" target="_blank">here</a>.
+       Python and Django REST Framework. Anyone who would like to contribute is completely welcome. You can find the repository <a href="https://github.com/Cuddlemuffin007/james_bond_api" target="_blank">here</a>.
     </p>
     <p>
       Please feel free to visit my <a href="http://brennonkrogers.com" target="_blank">personal website</a> and view some of my other projects as well.
@@ -26,9 +26,9 @@
       Documentation
     </h3>
     <p>
-      All information in the database can be accessed using the root api url <span class="well well-sm">/api/</span> and appending the plural name of the resource, i.e.
+      All information in the database can be accessed via the root api url <span class="well well-sm">/api/</span> and appending the plural name of the resource:
       <pre>/api/characters/</pre>
-      This will return a paginated list of all characters, default page size is 10 records.<br>
+      This will return a paginated list of all characters; default page size is 10 records.<br>
       Resources that may be queried are:
       <ul>
         <li><pre>/api/characters/</pre></li>
@@ -50,7 +50,7 @@
     </p>
     <p>
       Appending a query string <span class="well well-sm">?page=2</span> will return page two of the results.
-      Thus, the following url returns page 3 of the vehicles used in Bond films.
+      Thus, the following url returns page 3 of the vehicles used in Bond films:
       <pre>/api/vehicles/?page=3</pre>
     </p>
       Finally, you may also retrieve specific records by appending the id of the record to any specific endpoint.
@@ -59,7 +59,7 @@
     For example, using this format <span class="well well-sm">/api/&lt;resource-name&gt;/:id/</span> the following url
     </p>
     <pre>/api/characters/1/</pre>
-      will return
+      will return:
       <pre>
       {
           "id": 1,
@@ -87,7 +87,7 @@
       Outside of programming, I enjoy movies, TV, sports, and occasionally going for a run.
     </p>
     <p>
-    For a look at some of my other projects, please take a look at my
+      For a look at some of my other projects, please take a look at my
       <a href="http://brennonkrogers.com/#portfolio" target="_blank"> portfolio</a> or check out my <a href="https://github.com/Cuddlemuffin007">GitHub</a>.
     </p>
   </div>
