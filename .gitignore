@@ -4,6 +4,7 @@ __pycache__/
 db.sqlite3
 *.pyc
 *.csv
+*.DS_Store
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
