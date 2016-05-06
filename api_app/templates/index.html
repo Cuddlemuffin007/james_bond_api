@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="page-header">
-    <h1>007 API <small>RESTful API for EON Production James Bond films</small></h1>
+    <h1>007 API <small>RESTful API for EON Production James Bond Films</small></h1>
   </div>
   <div id="intro">
     <h3>
@@ -74,6 +74,42 @@
       </pre>
       the man himself: Bond, James Bond.
     </p>
+  </div>
+  <div id="try-it">
+    <h3>
+      Interactive
+    </h3>
+    <!-- INTERACTIVE CONTENT -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 class="bond-api-heading">
+        Try it out now!
+        <br/>
+      </h1>
+      <small>Greatly influenced by SWAPI - visit <a href="http://swapi.co">swapi.co</a></small>
+      <div class="input-group">
+        <span class="input-group-addon">http://007api.co/api/</span>
+          <input id="interactive" type="text" class="form-control" placeholder="characters/1/">
+          <span class="input-group-btn"><button onclick="interactive_call();return false;" class="btn btn-primary">request</button></span>
+      </div>
+      <small>Need a hint? try <a href="#" onclick="update('characters/1/');return false;"><i>characters/1/</i></a> or <a href="#" onclick="update('vehicles/3/');return false;"><i>vehicles/3/</i></a> or <a href="#" onclick="update('gadgets/9/');return false;"><i>gadgets/9/</i></a></small>
+      <p class="lead pad_top">Result:</p>
+      <div class="well">
+        <pre id="interactive_output" class="pre-scrollable">{
+            "id": 1,
+            "name": "James Bond",
+            "bio": "Intelligence officer in the Secret Intelligence Service, commonly known as MI6. Bond is also known by his code number, 007, and is a Royal Naval Reserve Commander",
+            "alias": "007",
+            "ally": false,
+            "villain": false,
+            "henchman": false,
+            "bond_girl": false
+         }
+        </pre>
+        <small><a id="bond-api-link" href="http://007api.co">Read the docs</a></small>
+        <span>  |  </span>
+        <small><a id="bond-api-link" href="https://github.com/Cuddlemuffin007/james_bond_api">Visit the repo</a></small>
+      </div>
+    </div>
   </div>
   <div id="about">
     <h3>

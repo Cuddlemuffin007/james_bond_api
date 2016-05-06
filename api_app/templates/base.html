@@ -23,6 +23,7 @@
             <ul class="nav navbar-nav">
               <li><a href="#intro">Intro</a></li>
               <li><a href="#documentation">Documentation</a></li>
+              <li><a href="#try-it">Interactive</a></li>
               <li><a href="#about">About</a></li>
             </ul>
           </div>
@@ -36,5 +37,33 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function update(call){
+          jQuery('#interactive').val(call);
+          interactive_call();
+      }
+
+      function interactive_call(){
+          var content = jQuery('#interactive').val()
+          if(content == ''){
+              content = 'characters/1/';
+          }
+          var call_url = 'http://007api.co/api/' + content;
+          jQuery.ajax({
+              dataType: 'json',
+              url: call_url,
+              context: document.body
+          }).complete(function(data) {
+              if(data['status'] == 200){
+                  var d = jQuery.parseJSON(data['responseText']);
+                  jQuery('#interactive_output').text(JSON.stringify(d, null, '\t'));
+              }
+              else if (data['status'] == 404) {
+                  jQuery('#interactive_output').text(data['status'] + ' ' + data['statusText']);
+              }
+          });
+        }
+    </script>
   </body>
 </html>

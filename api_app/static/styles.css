@@ -12,6 +12,7 @@ body {
 
 #intro h3,
 #documentation h3,
+#try-it h3,
 #about h3 {
   padding: 20px 0;
   text-transform: uppercase;
